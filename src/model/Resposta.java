@@ -7,17 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Alternativas implements Serializable {
+public class Resposta implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	int id;
+	private int id;
 
-	@Column(length = 30)
+	@Column(length = 25)
 	private String alternativa;
-
-	private String outro;
+	private int qty;
 
 	public int getId() {
 		return id;
@@ -35,12 +34,12 @@ public class Alternativas implements Serializable {
 		this.alternativa = alternativa;
 	}
 
-	public String getOutro() {
-		return outro;
+	public int getQty() {
+		return qty;
 	}
 
-	public void setOutro(String outro) {
-		this.outro = outro;
+	public void setQty(int qty) {
+		this.qty = qty;
 	}
 
 	@Override
@@ -50,7 +49,7 @@ public class Alternativas implements Serializable {
 		result = prime * result
 				+ ((alternativa == null) ? 0 : alternativa.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((outro == null) ? 0 : outro.hashCode());
+		result = prime * result + qty;
 		return result;
 	}
 
@@ -62,7 +61,7 @@ public class Alternativas implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Alternativas other = (Alternativas) obj;
+		Resposta other = (Resposta) obj;
 		if (alternativa == null) {
 			if (other.alternativa != null)
 				return false;
@@ -70,10 +69,7 @@ public class Alternativas implements Serializable {
 			return false;
 		if (id != other.id)
 			return false;
-		if (outro == null) {
-			if (other.outro != null)
-				return false;
-		} else if (!outro.equals(other.outro))
+		if (qty != other.qty)
 			return false;
 		return true;
 	}

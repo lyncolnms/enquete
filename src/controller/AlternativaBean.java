@@ -3,6 +3,7 @@ package controller;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -23,9 +24,11 @@ public class AlternativaBean implements Serializable {
 	private EntityManager em;
 
 	private Alternativas alternativas;
+	private String alternativa;
 	private Collection<Alternativas> listaAlternativas;
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@PostConstruct
 	public void init() {
 		this.alternativas = new Alternativas();
 		CriteriaQuery cQ = em.getCriteriaBuilder().createQuery();
@@ -34,12 +37,12 @@ public class AlternativaBean implements Serializable {
 		listaAlternativas = em.createQuery(cQ).getResultList();
 	}
 
-	public EntityManager getEm() {
-		return em;
+	public String getAlternativa() {
+		return alternativa;
 	}
 
-	public void setEm(EntityManager em) {
-		this.em = em;
+	public void setAlternativa(String alternativa) {
+		this.alternativa = alternativa;
 	}
 
 	public Alternativas getAlternativas() {
@@ -57,7 +60,14 @@ public class AlternativaBean implements Serializable {
 	public void setListaAlternativas(Collection<Alternativas> listaAlternativas) {
 		this.listaAlternativas = listaAlternativas;
 	}
-	
-	
 
+//	public void salvar(Alternativas alternativa) {
+//		try {
+//			this.em.persist(alternativa);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			this.init();
+//		}
+//	}
 }

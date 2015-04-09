@@ -12,9 +12,9 @@ public class Questoes implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	int id;
+	private int id;
 	@Column(nullable = false, length = 30)
-	String questao;
+	private String questao;
 
 	public int getId() {
 		return id;
@@ -59,5 +59,4 @@ public class Questoes implements Serializable {
 			return false;
 		return true;
 	}
-
 }
