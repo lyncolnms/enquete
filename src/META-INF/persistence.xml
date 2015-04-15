@@ -7,8 +7,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/EnqueteWeb</jta-data-source>
 
-		<class>model.Qestoes</class>
-		<class>model.Alternativas</class>
+		<class>model.AlternativaA</class>
 		<properties>
 			<!-- Propriedades do hibernate -->
 			<property name="hibernate.transaction.jta.platform"

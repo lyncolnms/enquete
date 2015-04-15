@@ -8,8 +8,12 @@
 	<title>Enquete</title>
 </h:head>
 <h:body>
-	<p:fieldset legend="Gráfico]">
-		<p:chart type="pie" model="#{respBean.pieModel}" />
+
+	<p:fieldset legend="Gráfico">
+		
+			<p:chart type="pie" model="#{controleBean.grafico}" />
+		
+
 	</p:fieldset>
 </h:body>
 </html>
